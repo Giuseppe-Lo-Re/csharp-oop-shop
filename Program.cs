@@ -82,7 +82,7 @@ public class Prodotto
         string PadLeftCodice = codice.ToString();
 
         // Creo un ciclo for che itererà 8 volte, pari ai caratteri richiesti
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; PadLeftCodice.Length < 8; i++)
         {
             PadLeftCodice = "0" + PadLeftCodice;
         }
