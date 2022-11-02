@@ -66,7 +66,9 @@ public class Prodotto
     // Metodo che restituisce il prezzo ivato
     public double GetPrezzoIvato()
     {
-        return (this.prezzo * this.iva) / 100;
+        double prezzoIvato = (this.prezzo * this.iva) / 100;
+        prezzoIvato = Math.Round(prezzoIvato, 2);
+        return prezzoIvato;
     }
 
     // Metodo che restituisce il nome esteso
