@@ -16,7 +16,15 @@
 using Microsoft.Win32;
 using System.Runtime.ConstrainedExecution;
 
+//Testo le funzionalità istanziando un nuovo prodotto
+Prodotto Monitor = new Prodotto("BenQ Mobius", "Monitor 27 pollici HD", 199.00);
 
+//Stampo a video
+Console.WriteLine("Codice articolo: " + Monitor.GetCodice());
+Console.WriteLine("Prezzo senza iva articolo: " + Monitor.PrezzoBase());
+Console.WriteLine("Prezzo ivato articolo" + Monitor.GetPrezzoIvato());
+Console.WriteLine("Nome esteso Articolo" + Monitor.GetNomeEsteso());
+Console.WriteLine("Codice pad left articolo" + Monitor.PadLeftCodice());
 public class Prodotto
 {
     // Definisco le variabili
@@ -36,8 +44,7 @@ public class Prodotto
         this.iva = 22;
     }
 
-    // Definisco i metodi
-
+    // Definisco i metodi:
     // Metodo che restituisce il codice
     public int GetCodice()
     {
@@ -79,7 +86,6 @@ public class Prodotto
         {
             PadLeftCodice = "0" + PadLeftCodice;
         }
-
         return PadLeftCodice;
     }
 }
