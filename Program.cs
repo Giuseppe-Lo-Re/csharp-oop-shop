@@ -14,6 +14,8 @@
 //BONUS: create un metodo che restituisca il codice con un pad left di 0 per arrivare a 8 caratteri (ad esempio codice 91 diventa 00000091, mentre codice 123445567 resta come è)
 
 using Microsoft.Win32;
+using System.Runtime.ConstrainedExecution;
+
 
 public class Prodotto
 {
@@ -27,7 +29,7 @@ public class Prodotto
     // Definisco il costruttore
     public Prodotto(string nome, string descrizione, double prezzo)
     {
-        codice = new Random().Next(1, 10001);
+        codice = new Random().Next(1, 1001);
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
@@ -48,5 +50,38 @@ public class Prodotto
         return this.prezzo;
     }
 
+    // Metodo che premette di settare il prezzo base
+    public void SetPrezzo(double prezzo)
+    {
+        this.prezzo = prezzo;
+    }
 
-}   
+    // Metodo che restituisce il prezzo ivato
+    public double GetPrezzoIvato()
+    {
+        return (this.prezzo * this.iva) / 100;
+    }
+
+    // Metodo che restituisce il nome esteso
+    public string GetNomeEsteso()
+    {
+        return this.nome + this.codice;
+    }
+
+    // Bonus: metodo che restituisce il codice con un pad left di 0 per arrivare a 8 caratteri
+    public string PadLeftCodice()
+    {
+        // Converto il codice in stringa
+        string PadLeftCodice = codice.ToString();
+
+        // Creo un ciclo for che itererà 8 volte, pari ai caratteri richiesti
+        for (int i = 0; i < 8; i++)
+        {
+            PadLeftCodice = "0" + PadLeftCodice;
+        }
+
+        return PadLeftCodice;
+    }
+}
+
+
