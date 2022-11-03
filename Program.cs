@@ -20,53 +20,35 @@ using System.Runtime.ConstrainedExecution;
 Prodotto monitor = new Prodotto("BenQ-Mobius", "Monitor 27 pollici HD", 199.00);
 
 //Stampo a video
-Console.WriteLine("Codice articolo: " + monitor.GetCodice());
-Console.WriteLine("Prezzo senza iva articolo: " + monitor.PrezzoBase());
+Console.WriteLine("Codice articolo: " + monitor.Codice);
+Console.WriteLine("Prezzo senza iva articolo: " + monitor.Prezzo);
 Console.WriteLine("Prezzo ivato articolo: " + monitor.GetPrezzoIvato());
 Console.WriteLine("Nome esteso Articolo: " + monitor.GetNomeEsteso());
 Console.WriteLine("Codice pad left articolo: " + monitor.PadLeftCodice());
 public class Prodotto
 {
-    // Definisco gli attributi
-    private int codice;
-    public string nome;
-    public string descrizione;
-    public double prezzo;
-    public int iva;
+    // Definisco le Properties
+    public int Codice { get; private set; }
+    public string Nome { get; set; }
+    public string Descrizione { get; set; }
+    public double Prezzo { get; set; }
+    public int Iva { get; set; }
 
     // Definisco il costruttore
     public Prodotto(string nome, string descrizione, double prezzo)
     {
-        codice = new Random().Next(1, 1001);
-        this.nome = nome;
-        this.descrizione = descrizione;
-        this.prezzo = prezzo;
-        iva = 22;
+        Codice = new Random().Next(1, 1001);
+        Nome = nome;
+        Descrizione = descrizione;
+        Prezzo = prezzo;
+        Iva = 22;
     }
 
     // Definisco i metodi:
-    // Metodo che restituisce il codice
-    public int GetCodice()
-    {
-        return codice;
-    }
-
-    // Metodo che restituisce il prezzo base
-    public double PrezzoBase()
-    {
-        return prezzo;
-    }
-
-    // Metodo che permette di settare il prezzo base
-    public void SetPrezzo(double prezzo)
-    {
-        this.prezzo = prezzo;
-    }
-
     // Metodo che restituisce il prezzo ivato
     public double GetPrezzoIvato()
     {
-        double prezzoIvato = (prezzo * iva) / 100;
+        double prezzoIvato = (Prezzo * Iva) / 100;
         prezzoIvato = Math.Round(prezzoIvato, 2);
         return prezzoIvato;
     }
@@ -74,14 +56,14 @@ public class Prodotto
     // Metodo che restituisce il nome esteso
     public string GetNomeEsteso()
     {
-        return nome + codice;
+        return Nome + Codice;
     }
 
     // Bonus: metodo che restituisce il codice con un pad left di 0 per arrivare a 8 caratteri
     public string PadLeftCodice()
     {
         // Converto il codice in stringa
-        string PadLeftCodice = codice.ToString();
+        string PadLeftCodice = Codice.ToString();
 
         // Creo un ciclo for che itererà 8 volte, pari ai caratteri richiesti
         for (int i = 0; PadLeftCodice.Length < 8; i++)
