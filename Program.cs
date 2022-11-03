@@ -27,7 +27,7 @@ Console.WriteLine("Nome esteso Articolo: " + Monitor.GetNomeEsteso());
 Console.WriteLine("Codice pad left articolo: " + Monitor.PadLeftCodice());
 public class Prodotto
 {
-    // Definisco le variabili
+    // Definisco gli attributi
     private int codice;
     public string nome;
     public string descrizione;
@@ -41,20 +41,20 @@ public class Prodotto
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
-        this.iva = 22;
+        iva = 22;
     }
 
     // Definisco i metodi:
     // Metodo che restituisce il codice
     public int GetCodice()
     {
-        return this.codice;
+        return codice;
     }
 
     // Metodo che restituisce il prezzo base
     public double PrezzoBase()
     {
-        return this.prezzo;
+        return prezzo;
     }
 
     // Metodo che permette di settare il prezzo base
@@ -66,7 +66,7 @@ public class Prodotto
     // Metodo che restituisce il prezzo ivato
     public double GetPrezzoIvato()
     {
-        double prezzoIvato = (this.prezzo * this.iva) / 100;
+        double prezzoIvato = (prezzo * iva) / 100;
         prezzoIvato = Math.Round(prezzoIvato, 2);
         return prezzoIvato;
     }
@@ -74,7 +74,7 @@ public class Prodotto
     // Metodo che restituisce il nome esteso
     public string GetNomeEsteso()
     {
-        return this.nome + this.codice;
+        return nome + codice;
     }
 
     // Bonus: metodo che restituisce il codice con un pad left di 0 per arrivare a 8 caratteri
@@ -88,6 +88,7 @@ public class Prodotto
         {
             PadLeftCodice = "0" + PadLeftCodice;
         }
+
         return PadLeftCodice;
     }
 }
