@@ -17,14 +17,14 @@ using Microsoft.Win32;
 using System.Runtime.ConstrainedExecution;
 
 //Testo le funzionalità istanziando un nuovo prodotto
-Prodotto Monitor = new Prodotto("BenQ-Mobius", "Monitor 27 pollici HD", 199.00);
+Prodotto monitor = new Prodotto("BenQ-Mobius", "Monitor 27 pollici HD", 199.00);
 
 //Stampo a video
-Console.WriteLine("Codice articolo: " + Monitor.GetCodice());
-Console.WriteLine("Prezzo senza iva articolo: " + Monitor.PrezzoBase());
-Console.WriteLine("Prezzo ivato articolo: " + Monitor.GetPrezzoIvato());
-Console.WriteLine("Nome esteso Articolo: " + Monitor.GetNomeEsteso());
-Console.WriteLine("Codice pad left articolo: " + Monitor.PadLeftCodice());
+Console.WriteLine("Codice articolo: " + monitor.GetCodice());
+Console.WriteLine("Prezzo senza iva articolo: " + monitor.PrezzoBase());
+Console.WriteLine("Prezzo ivato articolo: " + monitor.GetPrezzoIvato());
+Console.WriteLine("Nome esteso Articolo: " + monitor.GetNomeEsteso());
+Console.WriteLine("Codice pad left articolo: " + monitor.PadLeftCodice());
 public class Prodotto
 {
     // Definisco gli attributi
